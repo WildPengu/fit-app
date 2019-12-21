@@ -1,0 +1,177 @@
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.exercisesContainer {
+  width: 320px;
+  padding: 20px 20px;
+  background-color: white;
+  border-style: solid;
+  border-color: gray;
+  border-width: 2px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.addExercisebutton {
+  padding: 6px 40px;
+  background-color: #008efc;
+  border-radius: 2px;
+  border: 0;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.addExercisebutton:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.inputExercise {
+  padding: 8px 6px;
+  border-radius: 2px;
+}
+
+.exerciseHolder {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.exercisesList {
+  list-style-type: none;
+  width: 190px;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+
+.exercisesList:hover {
+  background-color: #b3b3b3;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.deleteExerciseButton {
+  padding: 5px 15px;
+  border: 0;
+}
+
+.deleteExerciseButton:hover {
+  cursor: pointer;
+  background-color: #b8201d;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trainingContainer {
+  width: 460px;
+  padding: 20px 20px;
+  background-color: white;
+  border-style: solid;
+  border-color: gray;
+  border-width: 2px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.calendarContainer {
+  width: 320px;
+  padding: 20px 20px;
+  background-color: white;
+  border-style: solid;
+  border-color: gray;
+  border-width: 2px;
+  font-size: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dateButton {
+  padding: 6px 40px;
+  background-color: #008efc;
+  border-radius: 2px;
+  border: 0;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.dateButton:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.trainigDatesContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.trainingDateList {
+  background-color: #d9d9d9;
+  list-style-type: none;
+  padding: 5px 50px;
+  font-size: 16px;
+}
+
+.trainingDateList:hover {
+  background-color: #b3b3b3;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.addExerciseInput {
+  padding: 6px;
+}
+
+.clickedExerciseAndDateContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.clickedExercise {
+  font-size: 20px;
+}
+
+.clickedDate {
+  font-size: 20px;
+}
+
+.addSeriesHolder {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 15px 0;
+}
+
+.seriesRepeatInput {
+  padding: 6px;
+  width: 80px;
+}
+
+.addSeriesButton {
+  padding: 5px 30px;
+  background-color: #008efc;
+  border-radius: 2px;
+  border: 0;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+}
+
+.addSeriesButton:hover {
+  background-color: black;
+  cursor: pointer;
+}

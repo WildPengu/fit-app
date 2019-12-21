@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.caloriesInfoContainer {
+  width: 510px;
+  padding: 20px 20px;
+  background-color: white;
+  margin-top: 40px;
+  border-style: solid;
+  border-color: gray;
+  border-width: 2px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}

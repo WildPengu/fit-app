@@ -1,0 +1,21 @@
+.inputBox {
+}
+
+.innerInputBox {
+  display: flex;
+  align-items: center;
+}
+
+.inputHolder {
+  padding: 6px;
+  border: 1px solid #dadada;
+}
+
+.inputDescribe {
+  width: 80px;
+}
+
+.inputUnits {
+  font-size: 20px;
+  padding-left: 5px;
+}

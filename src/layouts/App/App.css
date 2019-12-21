@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menuList {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 40%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menuList li:hover {
+    color:royalblue;
+}
+
+.contentContainer {
+    display: flex;
+    justify-content: center;
+    background-color: saddlebrown;
+}
+
+.imageHolder {
+    height: 700px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    background-image: url("../../images/backgroundPhoto.jpg");
+}
+
+.informationsContainer {
+    position: absolute;
+    width: 60%;
+}
+
+.mainInformationContainer {
+    width: 320px;
+    padding: 20px 20px;
+    background-color: white;
+    margin-top: 40px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 2px;
+}
+
+.mainInformationTitle {
+    font-size: 22px;
+}
+
+.sexHolder {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    width: 55%;
+}
+
+label {
+    font-size: 20px;
+}
+
+.sexOptionRadio:hover {
+    cursor:pointer
+}
+
+
+.weightHolder {
+    padding: 10px;
+    width: 80%;
+}
+
+.heightHolder {
+    padding: 10px;
+    width: 78%;
+}
+
+.labelAndHeight {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inputNumber {
+    padding: 6px 0;
+}
+
+.calculateButtonHolder {
+    display: flex;
+    justify-content: center;
+}
+
+.calculateButton {
+    padding: 10px 50px;
+    background-color: #008efc;
+    border-radius: 2px;
+    border: 0;
+    color:white;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.calculateButton:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.bmiListTitle {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.bmiListHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.bmiList {
+    list-style: none;
+    padding-left: 60px;
+    margin:0;
+}
+
+.bonusInfoHolder {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;;
+}
+
+.bonusInfoBMI {
+    width: 320px;
+    padding: 20px 20px;
+    background-color: white;
+    border-style: solid;
+    border-color: gray;
+    border-width: 2px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.bonusInfoDescription {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px; 
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+ h2 {
+    font-weight: 400
+ }
+
+ strong {
+    font-weight: 700
+ }

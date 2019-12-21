@@ -1,0 +1,15 @@
+.exerciseLevelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.exerciseLevelTitle {
+  padding-bottom: 10px;
+}
+
+select {
+  height: 40px;
+  width: 300px;
+}

@@ -1,0 +1,45 @@
+.genderInputDescribe {
+  display: flex;
+  width: 70px;
+}
+
+.genderInputContainer {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.genderHolder {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.radio-btn {
+  border: solid 1px #dfdfdf;
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio-btn:hover {
+  cursor: pointer;
+}
+
+.miniCirle {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+
+.genderOption {
+  padding-left: 6px;
+  font-size: 18px;
+}
+
+.black {
+  background-color: black;
+}
