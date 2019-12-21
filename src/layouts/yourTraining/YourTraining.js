@@ -117,6 +117,7 @@ class yourTraining extends React.Component {
     if (this.areAllFieldsValid(taskNameValidationError)) {
       this.addExerciseToState(this.state.text);
     }
+    console.log("xD");
   };
 
   deleteExercise = id => {
