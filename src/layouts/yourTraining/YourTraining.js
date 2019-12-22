@@ -25,7 +25,8 @@ class yourTraining extends React.Component {
         text: "Squats"
       }
     ],
-    calendar: [// dates
+    calendar: [
+      // dates
       {
         id: 0,
         date: "05-12-2019"
@@ -41,59 +42,8 @@ class yourTraining extends React.Component {
     ],
     userSeries: [],
     activeSeries: null,
-    error: "", // this should be deleted or renamed
+    error: "" // this should be deleted or renamed
   };
-
-  addTrainingToState = (dateId, exerciseId) => {
-
-
-
-    // this.setState(prevState => ({
-    //   repetitions: [...prevState.repetitions, this.state.number]
-    // }));
-
-    // let makeNewSeries = false;
-
-    // for (let el of this.state.userSeries) {
-    //   if (el.dateId === dateId && el.dateId === exerciseId) {
-    //     this.setState({
-    //       repetitions: this.state.number
-    //     });
-    //   } else {
-    //     makeNewSeries = true;
-    //   }
-    // }
-
-    // if (makeNewSeries) {
-    //   const series = {
-    //     id: this.seriesCounter,
-    //     dateId: dateId.id,
-    //     exerciseId: exerciseId.id,
-    //     repetitions: this.state.repetitions
-    //   };
-
-    //   let isdDateValid = true;
-    //   let isdExerciseValid = true;
-    //   for (let el of this.state.userSeries) {
-    //     if (el.dateId === series.dateId) {
-    //       isdDateValid = false;
-    //     }
-    //     if (el.exerciseId === series.exerciseId) {
-    //       isdExerciseValid = false;
-    //     }
-    //   }
-
-    //   if (isdDateValid || isdExerciseValid) {
-    //     this.seriesCounter++;
-    //     this.setState(prevState => ({
-    //       userSeries: [...prevState.userSeries, series]
-    //     }));
-    //   }
-    // }
-    // console.log(this.state.userSeries);
-  };
-
-
 
   addExerciseToState = text => {
     const exercise = {
@@ -116,7 +66,6 @@ class yourTraining extends React.Component {
   };
 
   addExercise = () => {
-
     const taskNameValidationError = this.runValidation();
     if (this.areAllFieldsValid(taskNameValidationError)) {
       this.addExerciseToState(this.state.text);
@@ -172,48 +121,53 @@ class yourTraining extends React.Component {
 
   areAllFieldsValid = error => error === "";
 
-  addNewSeriesToRepetitions = (amount) => {
+  addNewSeriesToRepetitions = amount => {
     this.setState({
       ...this.state,
       activeSeries: {
         ...this.state.activeSeries,
         repetitions: [...this.state.activeSeries.repetitions, amount]
       }
-    })
-  }
+    });
+    console.log(this.state.userSeries.repetitions);
+    console.log(amount);
+  };
 
   getActiveSeries = (dateId, exerciseId) => {
-    for(let el of this.state.userSeries) {
-      if(el.dateId === dateId && el.exerciseId === exerciseId) {
+    for (let el of this.state.userSeries) {
+      if (el.dateId === dateId && el.exerciseId === exerciseId) {
         return el;
-      } 
+      }
     }
     const series = {
       dateId,
-      exerciseId,
+      exerciseId: exerciseId.id,
       repetitions: []
     };
     this.setState(prevState => ({
       userSeries: [...prevState.userSeries, series]
-    }))
+    }));
     return series;
-  }
+  };
 
   selectDate = training => {
     let activeSeries = null;
-    if(this.state.clickedExercise) {
-      activeSeries = this.getActiveSeries(training.id, this.state.clickedExercise);
+    if (this.state.clickedExercise) {
+      activeSeries = this.getActiveSeries(
+        training.id,
+        this.state.clickedExercise
+      );
     }
-    this.setState({ clickedDate: training, activeSeries});
-  }
+    this.setState({ clickedDate: training, activeSeries });
+  };
 
   selectExercise = exercise => {
     let activeSeries = null;
-    if(this.state.clickedDate) {
+    if (this.state.clickedDate) {
       activeSeries = this.getActiveSeries(this.state.clickedDate, exercise.id);
     }
-    this.setState({ clickedExercise: exercise, activeSeries});
-  }
+    this.setState({ clickedExercise: exercise, activeSeries });
+  };
 
   render() {
     const allExercises = this.state.exercises.map(exercise => (
@@ -296,22 +250,21 @@ class yourTraining extends React.Component {
               ></input>
             </div>
             <div>
-              <button
-                onClick={() =>
-                  this.addTrainingToState(
-                    this.state.clickedDate,
-                    this.state.clickedExercise,
-                    this.state.number
-                  )
-                }
-                className="addSeriesButton" onClick={() => this.addNewSeriesToRepetitions(this.state.number)}
-              >
-                Dodaj
-              </button>
+              {this.state.userSeries.length !== 0 ? (
+                <button
+                  className="addSeriesButton"
+                  onClick={() =>
+                    this.addNewSeriesToRepetitions(this.state.number)
+                  }
+                >
+                  Dodaj
+                </button>
+              ) : (
+                <p>Dodaj date i ćwiczenie</p>
+              )}
             </div>
           </div>
-          <div>{this.state.repetitions}</div>
-          <div>{this.state.userSeries.repetitions}</div>
+          <div>{"Powtórzenia:" + this.state.userSeries.repetitions}</div>
         </div>
         <div className="calendarContainer">
           <div>
