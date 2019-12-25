@@ -1,5 +1,6 @@
 import React from "react";
 import "./YourTraining.css";
+import { AddTraining } from "./components/addTraining/AddTraining";
 
 class yourTraining extends React.Component {
   exerciseIdCounter = 3;
@@ -64,20 +65,10 @@ class yourTraining extends React.Component {
     });
   };
 
-  addExercise = () => {
-    const taskNameValidationError = this.runValidation();
-    if (this.areAllFieldsValid(taskNameValidationError)) {
-      this.addExerciseToState(this.state.addExerciseInputValue);
-    }
-  };
-
   deleteExercise = id => {
-    const decision = window.confirm("Do you really want to delete?");
-    if (decision) {
-      this.setState({
-        exercises: this.state.exercises.filter(exercise => exercise.id !== id)
-      });
-    }
+    this.setState({
+      exercises: this.state.exercises.filter(exercise => exercise.id !== id)
+    });
   };
 
   addDate = () => {
@@ -99,26 +90,6 @@ class yourTraining extends React.Component {
       lastAddedDate: today
     }));
   };
-
-  runValidation = () => {
-    let error = "";
-
-    if (this.state.addExerciseInputValue === "") {
-      error = "Pole jest puste";
-    }
-
-    if (/[0-9]+/.test(this.state.addExerciseInputValue)) {
-      error = "Nie wpisuj liczb xD";
-    }
-
-    this.setState({
-      error
-    });
-
-    return error;
-  };
-
-  areAllFieldsValid = error => error === "";
 
   addNewSeriesToRepetitions = amount => {
     const activeSeries = this.getActiveSeries(
@@ -169,25 +140,6 @@ class yourTraining extends React.Component {
   };
 
   render() {
-    const allExercises = this.state.exercises.map(exercise => (
-      <div key={exercise.id} className="exerciseHolder">
-        <div>
-          <li
-            className="exercisesList"
-            onClick={() => this.selectExercise(exercise)}
-          >
-            {exercise.text}
-          </li>
-        </div>
-        <button
-          className="deleteExerciseButton"
-          onClick={() => this.deleteExercise(exercise.id)}
-        >
-          Usuń
-        </button>
-      </div>
-    ));
-
     const allDates = this.state.calendar.map(training => (
       <div key={training.id}>
         <li
@@ -221,28 +173,15 @@ class yourTraining extends React.Component {
         (calendar.getMonth() + 1) +
         "-" +
         calendar.getFullYear();
-    console.log(activeSeries);
+
     return (
       <div className="mainContainer">
-        <div className="exercisesContainer">
-          <div>
-            <div>
-              <input
-                className="addExerciseInput"
-                type="text"
-                name="addExerciseInputValue"
-                placeholder="dodaj zadanie"
-                value={this.state.addExerciseInputValue}
-                onChange={this.updateInputValue}
-              />
-              <button className="addExercisebutton" onClick={this.addExercise}>
-                Dodaj
-              </button>
-            </div>
-            <div>{this.state.error}</div>
-            <ul>{allExercises}</ul>
-          </div>
-        </div>
+        <AddTraining
+          exercises={this.state.exercises}
+          selectExercise={this.selectExercise}
+          addExercise={this.addExerciseToState}
+          deleteExercise={this.deleteExercise}
+        />
         <div className="trainingContainer">
           <div className="clickedExerciseAndDateContainer">
             <span className="clickedExercise">
