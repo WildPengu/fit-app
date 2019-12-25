@@ -7,10 +7,10 @@ class yourTraining extends React.Component {
   seriesCounter = 0;
   state = {
     lastAddedDate: "",
-    clickedDate: "", // active date
-    clickedExercise: "", // active exercise
-    text: "", // that doesn't say anything
-    number: "", // that doesn't say anything
+    activeDate: null,
+    activeExercise: null,
+    addExerciseInputValue: "",
+    newRepetitionValue: "",
     exercises: [
       {
         id: 0,
@@ -41,7 +41,6 @@ class yourTraining extends React.Component {
       }
     ],
     userSeries: [],
-    activeSeries: null,
     error: "" // this should be deleted or renamed
   };
 
@@ -68,7 +67,7 @@ class yourTraining extends React.Component {
   addExercise = () => {
     const taskNameValidationError = this.runValidation();
     if (this.areAllFieldsValid(taskNameValidationError)) {
-      this.addExerciseToState(this.state.text);
+      this.addExerciseToState(this.state.addExerciseInputValue);
     }
   };
 
@@ -104,11 +103,11 @@ class yourTraining extends React.Component {
   runValidation = () => {
     let error = "";
 
-    if (this.state.text === "") {
+    if (this.state.addExerciseInputValue === "") {
       error = "Pole jest puste";
     }
 
-    if (/[0-9]+/.test(this.state.text)) {
+    if (/[0-9]+/.test(this.state.addExerciseInputValue)) {
       error = "Nie wpisuj liczb xD";
     }
 
@@ -122,18 +121,29 @@ class yourTraining extends React.Component {
   areAllFieldsValid = error => error === "";
 
   addNewSeriesToRepetitions = amount => {
+    const activeSeries = this.getActiveSeries(
+      this.state.activeDate,
+      this.state.activeExercise
+    );
+    activeSeries.repetitions.push(amount);
+
     this.setState({
-      ...this.state,
-      activeSeries: {
-        ...this.state.activeSeries,
-        repetitions: [...this.state.activeSeries.repetitions, amount]
-      }
+      userSeries: [
+        ...this.state.userSeries.filter(
+          series =>
+            series.dateId !== this.state.activeDate ||
+            series.exerciseId !== this.state.exerciseId
+        ),
+        activeSeries
+      ]
     });
-    console.log(this.state.userSeries.repetitions);
-    console.log(amount);
   };
 
   getActiveSeries = (dateId, exerciseId) => {
+    if (dateId == null || exerciseId == null) {
+      return null;
+    }
+
     for (let el of this.state.userSeries) {
       if (el.dateId === dateId && el.exerciseId === exerciseId) {
         return el;
@@ -141,7 +151,7 @@ class yourTraining extends React.Component {
     }
     const series = {
       dateId,
-      exerciseId: exerciseId.id,
+      exerciseId,
       repetitions: []
     };
     this.setState(prevState => ({
@@ -151,22 +161,11 @@ class yourTraining extends React.Component {
   };
 
   selectDate = training => {
-    let activeSeries = null;
-    if (this.state.clickedExercise) {
-      activeSeries = this.getActiveSeries(
-        training.id,
-        this.state.clickedExercise
-      );
-    }
-    this.setState({ clickedDate: training, activeSeries });
+    this.setState({ activeDate: training });
   };
 
   selectExercise = exercise => {
-    let activeSeries = null;
-    if (this.state.clickedDate) {
-      activeSeries = this.getActiveSeries(this.state.clickedDate, exercise.id);
-    }
-    this.setState({ clickedExercise: exercise, activeSeries });
+    this.setState({ activeExercise: exercise });
   };
 
   render() {
@@ -200,6 +199,21 @@ class yourTraining extends React.Component {
       </div>
     ));
 
+    const activeSeries = this.getActiveSeries(
+      this.state.activeDate,
+      this.state.activeExercise
+    );
+    let sets;
+    if (activeSeries !== null) {
+      sets = (
+        <div>
+          {activeSeries.repetitions.map((set, index) => (
+            <span key={index}>{set + " "}</span>
+          ))}
+        </div>
+      );
+    }
+
     let calendar = new Date(),
       today =
         calendar.getDate() +
@@ -207,7 +221,7 @@ class yourTraining extends React.Component {
         (calendar.getMonth() + 1) +
         "-" +
         calendar.getFullYear();
-
+    console.log(activeSeries);
     return (
       <div className="mainContainer">
         <div className="exercisesContainer">
@@ -216,9 +230,9 @@ class yourTraining extends React.Component {
               <input
                 className="addExerciseInput"
                 type="text"
-                name="text"
+                name="addExerciseInputValue"
                 placeholder="dodaj zadanie"
-                value={this.state.text}
+                value={this.state.addExerciseInputValue}
                 onChange={this.updateInputValue}
               />
               <button className="addExercisebutton" onClick={this.addExercise}>
@@ -232,39 +246,43 @@ class yourTraining extends React.Component {
         <div className="trainingContainer">
           <div className="clickedExerciseAndDateContainer">
             <span className="clickedExercise">
-              {this.state.clickedExercise !== ""
-                ? this.state.clickedExercise.text
+              {this.state.activeExercise !== null
+                ? this.state.activeExercise.text
                 : ""}
             </span>
             <span className="clickedDate">
-              {this.state.clickedDate !== "" ? this.state.clickedDate.date : ""}
+              {this.state.activeDate !== null ? this.state.activeDate.date : ""}
             </span>
           </div>
-          <div className="addSeriesHolder">
+          <div>
             <div>
-              <input
-                type="number"
-                name="number"
-                className="seriesRepeatInput"
-                onChange={this.updateInputValue}
-              ></input>
-            </div>
-            <div>
-              {this.state.userSeries.length !== 0 ? (
-                <button
-                  className="addSeriesButton"
-                  onClick={() =>
-                    this.addNewSeriesToRepetitions(this.state.number)
-                  }
-                >
-                  Dodaj
-                </button>
+              {activeSeries !== null ? (
+                <div className="addSeriesHolder">
+                  <div>
+                    <input
+                      type="number"
+                      name="newRepetitionValue"
+                      className="seriesRepeatInput"
+                      onChange={this.updateInputValue}
+                    ></input>
+                  </div>
+                  <button
+                    className="addSeriesButton"
+                    onClick={() =>
+                      this.addNewSeriesToRepetitions(
+                        this.state.newRepetitionValue
+                      )
+                    }
+                  >
+                    Dodaj
+                  </button>
+                </div>
               ) : (
                 <p>Dodaj date i ćwiczenie</p>
               )}
             </div>
+            {sets}
           </div>
-          <div>{"Powtórzenia:" + this.state.userSeries.repetitions}</div>
         </div>
         <div className="calendarContainer">
           <div>
