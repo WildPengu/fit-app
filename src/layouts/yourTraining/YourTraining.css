@@ -175,3 +175,17 @@ ul {
   background-color: black;
   cursor: pointer;
 }
+
+.ShowTrainingDaysContainer {
+  width: 320px;
+  padding: 20px 20px;
+  background-color: white;
+  border-style: solid;
+  border-color: gray;
+  border-width: 2px;
+  font-size: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}

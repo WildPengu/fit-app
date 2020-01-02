@@ -1,6 +1,6 @@
 import React from "react";
 
-export class AddTraining extends React.Component {
+export class AddExercise extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,6 +8,7 @@ export class AddTraining extends React.Component {
       error: ""
     };
   }
+  exerciseIdCounter = 3;
 
   updateExerciseName = e => {
     this.setState(
@@ -41,7 +42,12 @@ export class AddTraining extends React.Component {
   addExercise = () => {
     const isValidationCorrect = this.runValidation();
     if (this.areAllFieldsValid(isValidationCorrect)) {
-      this.props.addExercise(this.state.exerciseName);
+      const exercise = {
+        id: this.exerciseIdCounter,
+        name: this.state.exerciseName
+      };
+      this.exerciseIdCounter++;
+      this.props.addExercise(exercise);
       this.setState({
         exerciseName: ""
       });
@@ -56,7 +62,7 @@ export class AddTraining extends React.Component {
             className="exercisesList"
             onClick={() => this.props.selectExercise(exercise)}
           >
-            {exercise.text}
+            {exercise.name}
           </li>
         </div>
         <button
