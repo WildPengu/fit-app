@@ -13,70 +13,70 @@ class yourTraining extends React.Component {
     exercises: [
       {
         id: 0,
-        name: "Bench press"
+        name: "Bench press",
       },
       {
         id: 1,
-        name: "Pushups"
+        name: "Pushups",
       },
       {
         id: 2,
-        name: "Squats"
-      }
+        name: "Squats",
+      },
     ],
     trainingDays: [
       {
         id: 0,
-        date: "05-12-2019"
+        date: "05-12-2019",
       },
       {
         id: 1,
-        date: "06-12-2019"
+        date: "06-12-2019",
       },
       {
         id: 2,
-        date: "08-12-2019"
-      }
+        date: "08-12-2019",
+      },
     ],
-    userSeries: []
+    userSeries: [],
   };
 
-  addExerciseToState = exercise => {
+  addExerciseToState = (exercise) => {
     this.setState({
-      exercises: [...this.state.exercises, exercise]
+      exercises: [...this.state.exercises, exercise],
     });
   };
 
-  deleteExercise = id => {
+  deleteExercise = (id) => {
     this.setState({
-      exercises: this.state.exercises.filter(exercise => exercise.id !== id)
+      exercises: this.state.exercises.filter((exercise) => exercise.id !== id),
     });
   };
 
-  addTrainingDay = date => {
+  addTrainingDay = (date) => {
     this.setState({
-      trainingDays: [...this.state.trainingDays, date]
+      trainingDays: [...this.state.trainingDays, date],
     });
   };
 
-  addNewSeriesToRepetitions = activeSeries => {
+  addNewSeriesToRepetitions = (activeSeries) => {
     this.setState({
       userSeries: [
         ...this.state.userSeries.filter(
-          series =>
+          (series) =>
             series.dateId !== this.state.activeDate ||
             series.exerciseId !== this.state.exerciseId
         ),
-        activeSeries
-      ]
+        activeSeries,
+      ],
     });
   };
 
-  selectDate = training => {
+  selectDate = (training) => {
     this.setState({ activeDate: training });
   };
 
-  selectExercise = exercise => {
+  selectExercise = (exercise) => {
     this.setState({ activeExercise: exercise });
   };
 
@@ -101,14 +101,6 @@ class yourTraining extends React.Component {
             addTrainingDay={this.addTrainingDay}
             trainingDays={this.state.trainingDays}
             selectDate={this.selectDate}
-          />
-        </div>
-        <div className="ShowTrainingDaysContainer">
-          <ShowTrainingDays
-            activeExercise={this.state.activeExercise}
-            userSeries={this.state.userSeries}
-            trainingDays={this.state.trainingDays}
-            activeDate={this.state.activeDate}
           />
         </div>
       </>

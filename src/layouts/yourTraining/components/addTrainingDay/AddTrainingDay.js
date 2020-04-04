@@ -18,7 +18,7 @@ export class AddTrainingDay extends React.Component {
 
     const date = {
       id: this.dateIdCounter,
-      date: today
+      date: today,
     };
     this.dateIdCounter++;
     this.props.addTrainingDay(date);
@@ -26,7 +26,7 @@ export class AddTrainingDay extends React.Component {
 
   render() {
     console.log(this.dateIdCounter);
-    const allDates = this.props.trainingDays.map(training => (
+    const allDates = this.props.trainingDays.map((training) => (
       <div key={training.date}>
         <li
           className="trainingDateList"
@@ -46,7 +46,7 @@ export class AddTrainingDay extends React.Component {
         calendar.getFullYear();
 
     const shouldShowAddButton = !this.props.trainingDays.filter(
-      trainingDay => trainingDay.date === today
+      (trainingDay) => trainingDay.date === today
     )[0];
 
     return (

@@ -6,14 +6,14 @@ export class ShowTrainingDays extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeDate: null
+      activeDate: null,
     };
   }
 
   getTrainingDaysList = (userSeries, activeExercise, activeDate) => {
     _.forEach(userSeries, (item, key) => {});
     const only = userSeries.filter(
-      series => series.exerciseId.id === activeExercise.id
+      (series) => series.exerciseId.id === activeExercise.id
     );
 
     let isValid = true;
@@ -25,7 +25,7 @@ export class ShowTrainingDays extends React.Component {
     });
 
     if (isValid) {
-      return only.map(trainingDay => (
+      return only.map((trainingDay) => (
         <div key={trainingDay.dateId} className="trainingDayUnitHolder">
           <span
             className="trainingDay"
@@ -46,25 +46,13 @@ export class ShowTrainingDays extends React.Component {
 
   showRepetitions = (userSeries, activeExercise, trainingDays) => {
     const repetitions = userSeries.filter(
-      series => series.exerciseId.id === activeExercise.id
+      (series) => series.exerciseId.id === activeExercise.id
     );
-    console.log(userSeries);
     this.setState({
       //activeDate: userSeries.dateId.date
     });
-    console.log(this.state.activeDate);
   };
   render() {
-    // let sets;
-    // if (this.state.activeDate !== null) {
-    //   sets = (
-    //     <div>
-    //       {activeSeries.repetitions.map((set, index) => (
-    //         <span key={index}>{set + " "}</span>
-    //       ))}
-    //     </div>
-    //   );
-    // }
     return (
       <div>
         <div className="exerciseName">
