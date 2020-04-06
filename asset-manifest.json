@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/fit-app/static/css/main.869f6615.chunk.css",
-    "main.js": "/fit-app/static/js/main.a39324a8.chunk.js",
-    "main.js.map": "/fit-app/static/js/main.a39324a8.chunk.js.map",
+    "main.css": "/fit-app/static/css/main.55b88523.chunk.css",
+    "main.js": "/fit-app/static/js/main.af3d6ae8.chunk.js",
+    "main.js.map": "/fit-app/static/js/main.af3d6ae8.chunk.js.map",
     "runtime-main.js": "/fit-app/static/js/runtime-main.6a74104c.js",
     "runtime-main.js.map": "/fit-app/static/js/runtime-main.6a74104c.js.map",
     "static/css/2.5ac1c580.chunk.css": "/fit-app/static/css/2.5ac1c580.chunk.css",
     "static/js/2.2247912c.chunk.js": "/fit-app/static/js/2.2247912c.chunk.js",
     "static/js/2.2247912c.chunk.js.map": "/fit-app/static/js/2.2247912c.chunk.js.map",
     "index.html": "/fit-app/index.html",
-    "precache-manifest.288ad0d05f42e9a72adfbaf8520d5d72.js": "/fit-app/precache-manifest.288ad0d05f42e9a72adfbaf8520d5d72.js",
+    "precache-manifest.dde4c7ea38d972272a0f4f30c00d0ae0.js": "/fit-app/precache-manifest.dde4c7ea38d972272a0f4f30c00d0ae0.js",
     "service-worker.js": "/fit-app/service-worker.js",
     "static/css/2.5ac1c580.chunk.css.map": "/fit-app/static/css/2.5ac1c580.chunk.css.map",
-    "static/css/main.869f6615.chunk.css.map": "/fit-app/static/css/main.869f6615.chunk.css.map",
+    "static/css/main.55b88523.chunk.css.map": "/fit-app/static/css/main.55b88523.chunk.css.map",
     "static/media/App.css": "/fit-app/static/media/backgroundPhoto.a63850ee.jpg",
     "static/media/semantic.min.css": "/fit-app/static/media/outline-icons.ef60a4f6.woff"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.6a74104c.js",
     "static/css/2.5ac1c580.chunk.css",
     "static/js/2.2247912c.chunk.js",
-    "static/css/main.869f6615.chunk.css",
-    "static/js/main.a39324a8.chunk.js"
+    "static/css/main.55b88523.chunk.css",
+    "static/js/main.af3d6ae8.chunk.js"
   ]
 }
