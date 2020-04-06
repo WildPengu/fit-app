@@ -14,7 +14,7 @@ class App extends React.Component {
         <div className="contentContainer">
           <div className="imageHolder">
             <div className="informationsContainer">
-              <Route exact path="/" component={BmiCalculator} />
+              <Route exact path="/fit-app" component={BmiCalculator} />
               <Route path="/calories" component={Calories} />
               <Route path="/yourTraining" component={yourTraining} />
             </div>
