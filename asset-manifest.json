@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/fit-app/static/css/main.869f6615.chunk.css",
-    "main.js": "/fit-app/static/js/main.a39324a8.chunk.js",
-    "main.js.map": "/fit-app/static/js/main.a39324a8.chunk.js.map",
-    "runtime-main.js": "/fit-app/static/js/runtime-main.6a74104c.js",
-    "runtime-main.js.map": "/fit-app/static/js/runtime-main.6a74104c.js.map",
-    "static/css/2.5ac1c580.chunk.css": "/fit-app/static/css/2.5ac1c580.chunk.css",
-    "static/js/2.2247912c.chunk.js": "/fit-app/static/js/2.2247912c.chunk.js",
-    "static/js/2.2247912c.chunk.js.map": "/fit-app/static/js/2.2247912c.chunk.js.map",
-    "index.html": "/fit-app/index.html",
-    "precache-manifest.288ad0d05f42e9a72adfbaf8520d5d72.js": "/fit-app/precache-manifest.288ad0d05f42e9a72adfbaf8520d5d72.js",
-    "service-worker.js": "/fit-app/service-worker.js",
-    "static/css/2.5ac1c580.chunk.css.map": "/fit-app/static/css/2.5ac1c580.chunk.css.map",
-    "static/css/main.869f6615.chunk.css.map": "/fit-app/static/css/main.869f6615.chunk.css.map",
-    "static/media/App.css": "/fit-app/static/media/backgroundPhoto.a63850ee.jpg",
-    "static/media/semantic.min.css": "/fit-app/static/media/outline-icons.ef60a4f6.woff"
+    "main.css": "/fitapp/static/css/main.53fa85dc.chunk.css",
+    "main.js": "/fitapp/static/js/main.a39324a8.chunk.js",
+    "main.js.map": "/fitapp/static/js/main.a39324a8.chunk.js.map",
+    "runtime-main.js": "/fitapp/static/js/runtime-main.4d551d0c.js",
+    "runtime-main.js.map": "/fitapp/static/js/runtime-main.4d551d0c.js.map",
+    "static/css/2.46a4eb45.chunk.css": "/fitapp/static/css/2.46a4eb45.chunk.css",
+    "static/js/2.2247912c.chunk.js": "/fitapp/static/js/2.2247912c.chunk.js",
+    "static/js/2.2247912c.chunk.js.map": "/fitapp/static/js/2.2247912c.chunk.js.map",
+    "index.html": "/fitapp/index.html",
+    "precache-manifest.215da4dde1a0af96c4ca1ef9272d2be3.js": "/fitapp/precache-manifest.215da4dde1a0af96c4ca1ef9272d2be3.js",
+    "service-worker.js": "/fitapp/service-worker.js",
+    "static/css/2.46a4eb45.chunk.css.map": "/fitapp/static/css/2.46a4eb45.chunk.css.map",
+    "static/css/main.53fa85dc.chunk.css.map": "/fitapp/static/css/main.53fa85dc.chunk.css.map",
+    "static/media/App.css": "/fitapp/static/media/backgroundPhoto.a63850ee.jpg",
+    "static/media/semantic.min.css": "/fitapp/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.6a74104c.js",
-    "static/css/2.5ac1c580.chunk.css",
+    "static/js/runtime-main.4d551d0c.js",
+    "static/css/2.46a4eb45.chunk.css",
     "static/js/2.2247912c.chunk.js",
-    "static/css/main.869f6615.chunk.css",
+    "static/css/main.53fa85dc.chunk.css",
     "static/js/main.a39324a8.chunk.js"
   ]
 }
